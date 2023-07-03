@@ -1,9 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
 
-@app.route('/sum')
+@app.route('/sum', methods=['GET', 'POST'])
 def sum():
     if request.method == 'GET':
         params  = request.args
@@ -13,7 +13,13 @@ def sum():
         a = params.get('a', 0)
         b = params.get('b', 0)
 
-        return f"result: {int(a) + int(b)}"
+    if request.method == 'POST':
+        data = request.get_json()
+        
+        a = data.get('a')
+        b = data.get('b')
+
+    return jsonify({"sum": int(a) + int(b)})
 
 
 
