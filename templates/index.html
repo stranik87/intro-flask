@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% if title %}
-        <title>{{ title }}</title>
-    {% else %}
-        <title>Welcome!</title>
-    {% endif %}
+    <title>Fruits</title>
 </head>
 <body>
 
-    <h1>Home Page</h1>
+    <h1>List of Fruits</h1>
+
+    <ul>
+        {% for fruit in fruits %}
+            <li>{{ fruit.name }} costs {{ fruit.price }}$.</li>
+        {% endfor %}
+    </ul>
     
 </body>
 </html>
