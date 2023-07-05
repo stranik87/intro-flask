@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ title }}</title>
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Welcome!</title>
+    {% endif %}
 </head>
 <body>
 
-    <h1>Hi, {{ name }}</h1>
+    <h1>Home Page</h1>
     
 </body>
 </html>
